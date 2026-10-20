@@ -115,7 +115,6 @@ def x25519_cipher(message: str, public_hex: str) -> str:
     ephemeral = secrets.token_hex(KEY_SIZE)
     key = shared_key(ephemeral, public_hex)
     ciphered = xor_process(message, key, False, True)
-    print(key)
     return public_key(ephemeral) + " " + ciphered
 
 
@@ -125,7 +124,6 @@ def x25519_decipher(data: str, private_hex: str) -> str:
     if len(lines) != 2:
         fail("Invalid ciphered message")
     key = shared_key(private_hex, lines[0])
-    print(key)
     return xor_process(lines[1], key, False, False).rstrip("\0")
 
 
