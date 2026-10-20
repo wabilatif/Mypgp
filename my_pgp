@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+import sys
+from src.main import main
+
+if __name__ == "__main__":
+    return_value = main()
+    sys.exit(return_value)
